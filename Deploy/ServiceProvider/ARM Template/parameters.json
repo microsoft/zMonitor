@@ -1,0 +1,102 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automationAccounts_CSPOperationsBot_name": {
+            "value": null
+        },
+        "databaseAccounts_cspoperationsdb_name": {
+            "value": null
+        },
+        "certificates_AzureClassicRunAsCertificate_base64Value": {
+            "value": null
+        },
+        "certificates_AzureRunAsCertificate_base64Value": {
+            "value": null
+        },
+        "automationAccounts_CSPOperationsBot_name_1": {
+            "value": null
+        },
+        "databaseAccounts_cspoperationsdb_name_1": {
+            "value": null
+        },
+        "storageAccounts_springcspopsdump_name": {
+            "value": null
+        },
+        "runbooks_RB_Ops_CleanupDaily_name": {
+            "value": null
+        },
+        "runbooks_RB_Ops_CSV2AzureTable_name": {
+            "value": null
+        },
+        "runbooks_RB_Ops_DeleteEmptyLogs_name": {
+            "value": null
+        },
+        "runbooks_RB_Ops_ProcessLogs_name": {
+            "value": null
+        },
+        "modules_Azure_name": {
+            "value": null
+        },
+        "modules_Azure.Storage_name": {
+            "value": null
+        },
+        "modules_AzureRM.Automation_name": {
+            "value": null
+        },
+        "modules_AzureRM.Compute_name": {
+            "value": null
+        },
+        "modules_AzureRM.Profile_name": {
+            "value": null
+        },
+        "modules_AzureRM.Resources_name": {
+            "value": null
+        },
+        "modules_AzureRM.Sql_name": {
+            "value": null
+        },
+        "modules_AzureRM.Storage_name": {
+            "value": null
+        },
+        "modules_Microsoft.PowerShell.Core_name": {
+            "value": null
+        },
+        "modules_Microsoft.PowerShell.Diagnostics_name": {
+            "value": null
+        },
+        "modules_Microsoft.PowerShell.Management_name": {
+            "value": null
+        },
+        "modules_Microsoft.PowerShell.Security_name": {
+            "value": null
+        },
+        "modules_Microsoft.PowerShell.Utility_name": {
+            "value": null
+        },
+        "modules_Microsoft.WSMan.Management_name": {
+            "value": null
+        },
+        "modules_Orchestrator.AssetManagement.Cmdlets_name": {
+            "value": null
+        },
+        "certificates_AzureClassicRunAsCertificate_name": {
+            "value": null
+        },
+        "certificates_AzureRunAsCertificate_name": {
+            "value": null
+        },
+        "connections_AzureClassicRunAsConnection_name": {
+            "value": null
+        },
+        "connections_AzureRunAsConnection_name": {
+            "value": null
+        },
+        "schedules_Schedule_Daily_name": {
+            "value": null
+        },
+        "jobSchedules_37c4294f_876f_48d6_9b6b_6fdcf04d19d3_name": {
+            "value": null
+        }
+    }
+}

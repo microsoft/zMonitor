@@ -1,0 +1,735 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automationAccounts_CSPOperationsBot_name": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "databaseAccounts_cspoperationsdb_name": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "certificates_AzureClassicRunAsCertificate_base64Value": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "certificates_AzureRunAsCertificate_base64Value": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "automationAccounts_CSPOperationsBot_name_1": {
+            "defaultValue": "CSPOperationsBot",
+            "type": "String"
+        },
+        "databaseAccounts_cspoperationsdb_name_1": {
+            "defaultValue": "cspoperationsdb",
+            "type": "String"
+        },
+        "storageAccounts_springcspopsdump_name": {
+            "defaultValue": "springcspopsdump",
+            "type": "String"
+        },
+        "runbooks_RB_Ops_CleanupDaily_name": {
+            "defaultValue": "CSPOperationsBot/RB-Ops-CleanupDaily",
+            "type": "String"
+        },
+        "runbooks_RB_Ops_CSV2AzureTable_name": {
+            "defaultValue": "CSPOperationsBot/RB-Ops-CSV2AzureTable",
+            "type": "String"
+        },
+        "runbooks_RB_Ops_DeleteEmptyLogs_name": {
+            "defaultValue": "CSPOperationsBot/RB-Ops-DeleteEmptyLogs",
+            "type": "String"
+        },
+        "runbooks_RB_Ops_ProcessLogs_name": {
+            "defaultValue": "CSPOperationsBot/RB-Ops-ProcessLogs",
+            "type": "String"
+        },
+        "modules_Azure_name": {
+            "defaultValue": "CSPOperationsBot/Azure",
+            "type": "String"
+        },
+        "modules_Azure.Storage_name": {
+            "defaultValue": "CSPOperationsBot/Azure.Storage",
+            "type": "String"
+        },
+        "modules_AzureRM.Automation_name": {
+            "defaultValue": "CSPOperationsBot/AzureRM.Automation",
+            "type": "String"
+        },
+        "modules_AzureRM.Compute_name": {
+            "defaultValue": "CSPOperationsBot/AzureRM.Compute",
+            "type": "String"
+        },
+        "modules_AzureRM.Profile_name": {
+            "defaultValue": "CSPOperationsBot/AzureRM.Profile",
+            "type": "String"
+        },
+        "modules_AzureRM.Resources_name": {
+            "defaultValue": "CSPOperationsBot/AzureRM.Resources",
+            "type": "String"
+        },
+        "modules_AzureRM.Sql_name": {
+            "defaultValue": "CSPOperationsBot/AzureRM.Sql",
+            "type": "String"
+        },
+        "modules_AzureRM.Storage_name": {
+            "defaultValue": "CSPOperationsBot/AzureRM.Storage",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Core_name": {
+            "defaultValue": "CSPOperationsBot/Microsoft.PowerShell.Core",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Diagnostics_name": {
+            "defaultValue": "CSPOperationsBot/Microsoft.PowerShell.Diagnostics",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Management_name": {
+            "defaultValue": "CSPOperationsBot/Microsoft.PowerShell.Management",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Security_name": {
+            "defaultValue": "CSPOperationsBot/Microsoft.PowerShell.Security",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Utility_name": {
+            "defaultValue": "CSPOperationsBot/Microsoft.PowerShell.Utility",
+            "type": "String"
+        },
+        "modules_Microsoft.WSMan.Management_name": {
+            "defaultValue": "CSPOperationsBot/Microsoft.WSMan.Management",
+            "type": "String"
+        },
+        "modules_Orchestrator.AssetManagement.Cmdlets_name": {
+            "defaultValue": "CSPOperationsBot/Orchestrator.AssetManagement.Cmdlets",
+            "type": "String"
+        },
+        "certificates_AzureClassicRunAsCertificate_name": {
+            "defaultValue": "CSPOperationsBot/AzureClassicRunAsCertificate",
+            "type": "String"
+        },
+        "certificates_AzureRunAsCertificate_name": {
+            "defaultValue": "CSPOperationsBot/AzureRunAsCertificate",
+            "type": "String"
+        },
+        "connections_AzureClassicRunAsConnection_name": {
+            "defaultValue": "CSPOperationsBot/AzureClassicRunAsConnection",
+            "type": "String"
+        },
+        "connections_AzureRunAsConnection_name": {
+            "defaultValue": "CSPOperationsBot/AzureRunAsConnection",
+            "type": "String"
+        },
+        "schedules_Schedule_Daily_name": {
+            "defaultValue": "CSPOperationsBot/Schedule-Daily",
+            "type": "String"
+        },
+        "jobs_b2428a7c_aae2_4173_b855_9b19c6f38b42_name": {
+            "defaultValue": "CSPOperationsBot/b2428a7c-aae2-4173-b855-9b19c6f38b42",
+            "type": "String"
+        },
+        "jobs_562a12e5_2ac1_4e53_a3d1_0dfd14dcc9b6_name": {
+            "defaultValue": "CSPOperationsBot/562a12e5-2ac1-4e53-a3d1-0dfd14dcc9b6",
+            "type": "String"
+        },
+        "jobs_5cf08d9c_838a_4e5b_aea8_996fee96f07a_name": {
+            "defaultValue": "CSPOperationsBot/5cf08d9c-838a-4e5b-aea8-996fee96f07a",
+            "type": "String"
+        },
+        "jobs_5c3eb2e2_4f00_4116_a087_b186905d7df2_name": {
+            "defaultValue": "CSPOperationsBot/5c3eb2e2-4f00-4116-a087-b186905d7df2",
+            "type": "String"
+        },
+        "jobs_11d1b837_97f6_4fdd_aee2_e761e49cdc06_name": {
+            "defaultValue": "CSPOperationsBot/11d1b837-97f6-4fdd-aee2-e761e49cdc06",
+            "type": "String"
+        },
+        "jobs_1e050e7f_6495_4a56_a9d2_84fd561c87da_name": {
+            "defaultValue": "CSPOperationsBot/1e050e7f-6495-4a56-a9d2-84fd561c87da",
+            "type": "String"
+        },
+        "jobs_9c5b7ddc_1e41_44b2_84ad_d06a13d5a0e5_name": {
+            "defaultValue": "CSPOperationsBot/9c5b7ddc-1e41-44b2-84ad-d06a13d5a0e5",
+            "type": "String"
+        },
+        "jobs_b85a1861_2161_4b41_ad78_817a0f7f6aee_name": {
+            "defaultValue": "CSPOperationsBot/b85a1861-2161-4b41-ad78-817a0f7f6aee",
+            "type": "String"
+        },
+        "jobs_7d7bcf2b_d60e_4cb4_8289_bdf2ea340b93_name": {
+            "defaultValue": "CSPOperationsBot/7d7bcf2b-d60e-4cb4-8289-bdf2ea340b93",
+            "type": "String"
+        },
+        "jobs_388e5c31_1bbd_4342_94cf_2dfcd934bc27_name": {
+            "defaultValue": "CSPOperationsBot/388e5c31-1bbd-4342-94cf-2dfcd934bc27",
+            "type": "String"
+        },
+        "jobs_05054954_db58_48ea_9e27_e6ef0362c29d_name": {
+            "defaultValue": "CSPOperationsBot/05054954-db58-48ea-9e27-e6ef0362c29d",
+            "type": "String"
+        },
+        "jobs_234fd6ca_536b_4db1_9545_e4d4b14ea912_name": {
+            "defaultValue": "CSPOperationsBot/234fd6ca-536b-4db1-9545-e4d4b14ea912",
+            "type": "String"
+        },
+        "jobs_4f2d8451_5f42_45fe_898d_4994971fa145_name": {
+            "defaultValue": "CSPOperationsBot/4f2d8451-5f42-45fe-898d-4994971fa145",
+            "type": "String"
+        },
+        "jobs_35c81bf1_7edd_49b2_bb01_b2f065185f6b_name": {
+            "defaultValue": "CSPOperationsBot/35c81bf1-7edd-49b2-bb01-b2f065185f6b",
+            "type": "String"
+        },
+        "jobs_ec15dd81_f183_4ad5_af5b_9b94ab57b019_name": {
+            "defaultValue": "CSPOperationsBot/ec15dd81-f183-4ad5-af5b-9b94ab57b019",
+            "type": "String"
+        },
+        "jobs_bc5dd2c1_8361_48ea_870e_543fbf8be40c_name": {
+            "defaultValue": "CSPOperationsBot/bc5dd2c1-8361-48ea-870e-543fbf8be40c",
+            "type": "String"
+        },
+        "jobs_10ef5488_f69d_49df_9fc4_9adafde1985b_name": {
+            "defaultValue": "CSPOperationsBot/10ef5488-f69d-49df-9fc4-9adafde1985b",
+            "type": "String"
+        },
+        "jobs_bb98afed_f0ec_47fe_8b6c_8172b64c75bb_name": {
+            "defaultValue": "CSPOperationsBot/bb98afed-f0ec-47fe-8b6c-8172b64c75bb",
+            "type": "String"
+        },
+        "jobs_c948fe57_2ba0_4e9c_9270_5d0f8314cada_name": {
+            "defaultValue": "CSPOperationsBot/c948fe57-2ba0-4e9c-9270-5d0f8314cada",
+            "type": "String"
+        },
+        "jobs_bd9264c7_2b89_4e6c_8b0e_adbd0bc605e8_name": {
+            "defaultValue": "CSPOperationsBot/bd9264c7-2b89-4e6c-8b0e-adbd0bc605e8",
+            "type": "String"
+        },
+        "jobs_c6bd9352_9a80_49e3_889f_f52baaf1c0ef_name": {
+            "defaultValue": "CSPOperationsBot/c6bd9352-9a80-49e3-889f-f52baaf1c0ef",
+            "type": "String"
+        },
+        "jobs_ff512d01_35d5_44c2_85bd_adf4e6246b0d_name": {
+            "defaultValue": "CSPOperationsBot/ff512d01-35d5-44c2-85bd-adf4e6246b0d",
+            "type": "String"
+        },
+        "jobs_13b1ff02_9ba5_48d9_aa2d_448cdbd062ab_name": {
+            "defaultValue": "CSPOperationsBot/13b1ff02-9ba5-48d9-aa2d-448cdbd062ab",
+            "type": "String"
+        },
+        "jobs_adc75d5b_661c_4462_893f_0a98a049e0c3_name": {
+            "defaultValue": "CSPOperationsBot/adc75d5b-661c-4462-893f-0a98a049e0c3",
+            "type": "String"
+        },
+        "jobs_42703ae6_c88e_4deb_9725_438794502c9d_name": {
+            "defaultValue": "CSPOperationsBot/42703ae6-c88e-4deb-9725-438794502c9d",
+            "type": "String"
+        },
+        "jobs_7f212146_d898_4d6e_83d8_9f758ae7ae5e_name": {
+            "defaultValue": "CSPOperationsBot/7f212146-d898-4d6e-83d8-9f758ae7ae5e",
+            "type": "String"
+        },
+        "jobs_3ff0d78f_eeaf_4729_ab95_432779e47d93_name": {
+            "defaultValue": "CSPOperationsBot/3ff0d78f-eeaf-4729-ab95-432779e47d93",
+            "type": "String"
+        },
+        "jobs_daa0aa64_9e0f_48be_af42_4a631df232e3_name": {
+            "defaultValue": "CSPOperationsBot/daa0aa64-9e0f-48be-af42-4a631df232e3",
+            "type": "String"
+        },
+        "jobs_b0b5dc40_dc44_43d6_8177_9d039944e67a_name": {
+            "defaultValue": "CSPOperationsBot/b0b5dc40-dc44-43d6-8177-9d039944e67a",
+            "type": "String"
+        },
+        "jobs_36322bea_0ee0_4170_b771_0702b203183c_name": {
+            "defaultValue": "CSPOperationsBot/36322bea-0ee0-4170-b771-0702b203183c",
+            "type": "String"
+        },
+        "jobs_7faa2823_9589_4e09_a1af_d17b9d56371b_name": {
+            "defaultValue": "CSPOperationsBot/7faa2823-9589-4e09-a1af-d17b9d56371b",
+            "type": "String"
+        },
+        "jobs_d492672a_e25f_4cb7_aeb5_4cd2bbdf3208_name": {
+            "defaultValue": "CSPOperationsBot/d492672a-e25f-4cb7-aeb5-4cd2bbdf3208",
+            "type": "String"
+        },
+        "jobs_ca20ed9d_b218_42a1_b5f0_c3c0c6288105_name": {
+            "defaultValue": "CSPOperationsBot/ca20ed9d-b218-42a1-b5f0-c3c0c6288105",
+            "type": "String"
+        },
+        "jobs_47af6fd7_e717_4858_a9c9_02dcb4a14f93_name": {
+            "defaultValue": "CSPOperationsBot/47af6fd7-e717-4858-a9c9-02dcb4a14f93",
+            "type": "String"
+        },
+        "jobs_c0f78c73_31b4_4e5f_946d_b3837dc2a5e7_name": {
+            "defaultValue": "CSPOperationsBot/c0f78c73-31b4-4e5f-946d-b3837dc2a5e7",
+            "type": "String"
+        },
+        "jobs_f34dddd9_d781_48f5_838c_4ad61196debf_name": {
+            "defaultValue": "CSPOperationsBot/f34dddd9-d781-48f5-838c-4ad61196debf",
+            "type": "String"
+        },
+        "jobs_ffd51261_8f1a_4fa2_aba3_855aa4c3e66b_name": {
+            "defaultValue": "CSPOperationsBot/ffd51261-8f1a-4fa2-aba3-855aa4c3e66b",
+            "type": "String"
+        },
+        "jobs_b511bca9_67a3_4179_8696_9256c0a0af70_name": {
+            "defaultValue": "CSPOperationsBot/b511bca9-67a3-4179-8696-9256c0a0af70",
+            "type": "String"
+        },
+        "jobs_76ab68d5_12a0_4a37_9855_5638ccff1afd_name": {
+            "defaultValue": "CSPOperationsBot/76ab68d5-12a0-4a37-9855-5638ccff1afd",
+            "type": "String"
+        },
+        "jobs_f64a0a52_ce41_466a_a5de_713a761cf0b8_name": {
+            "defaultValue": "CSPOperationsBot/f64a0a52-ce41-466a-a5de-713a761cf0b8",
+            "type": "String"
+        },
+        "jobs_a172f7bc_9d8f_4d37_8898_167ae9576f61_name": {
+            "defaultValue": "CSPOperationsBot/a172f7bc-9d8f-4d37-8898-167ae9576f61",
+            "type": "String"
+        },
+        "jobs_d896c310_cc47_4db1_a0b4_5a8349fa1a86_name": {
+            "defaultValue": "CSPOperationsBot/d896c310-cc47-4db1-a0b4-5a8349fa1a86",
+            "type": "String"
+        },
+        "jobs_38182e13_ac96_4ee1_9499_cd6548156159_name": {
+            "defaultValue": "CSPOperationsBot/38182e13-ac96-4ee1-9499-cd6548156159",
+            "type": "String"
+        },
+        "jobs_0a41bb9d_e609_4490_a9b2_f11a112e3456_name": {
+            "defaultValue": "CSPOperationsBot/0a41bb9d-e609-4490-a9b2-f11a112e3456",
+            "type": "String"
+        },
+        "jobs_ba91f542_6347_4fea_b211_9aaab5c24a53_name": {
+            "defaultValue": "CSPOperationsBot/ba91f542-6347-4fea-b211-9aaab5c24a53",
+            "type": "String"
+        },
+        "jobs_c46e8752_b1e7_4f2b_a109_aa2ce76a8a0b_name": {
+            "defaultValue": "CSPOperationsBot/c46e8752-b1e7-4f2b-a109-aa2ce76a8a0b",
+            "type": "String"
+        },
+        "jobs_8f604319_1adb_4cb2_b648_5d2152ccafea_name": {
+            "defaultValue": "CSPOperationsBot/8f604319-1adb-4cb2-b648-5d2152ccafea",
+            "type": "String"
+        },
+        "jobSchedules_37c4294f_876f_48d6_9b6b_6fdcf04d19d3_name": {
+            "defaultValue": "CSPOperationsBot/37c4294f-876f-48d6-9b6b-6fdcf04d19d3",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot'.",
+            "type": "Microsoft.Automation/automationAccounts",
+            "name": "[parameters('automationAccounts_CSPOperationsBot_name_1')]",
+            "apiVersion": "2015-10-31",
+            "location": "westeurope",
+            "properties": {
+                "sku": {
+                    "name": "[parameters('automationAccounts_CSPOperationsBot_name')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourceGroups/CSPOperations/providers/Microsoft.DocumentDB/databaseAccounts/cspoperationsdb'.",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "kind": "GlobalDocumentDB",
+            "name": "[parameters('databaseAccounts_cspoperationsdb_name_1')]",
+            "apiVersion": "2015-04-08",
+            "location": "West Europe",
+            "tags": {},
+            "properties": {
+                "databaseAccountOfferType": "Standard",
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "Session",
+                    "maxIntervalInSeconds": 5,
+                    "maxStalenessPrefix": 100
+                },
+                "name": "[parameters('databaseAccounts_cspoperationsdb_name')]"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourceGroups/cspoperations/providers/Microsoft.Storage/storageAccounts/springcspopsdump'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_springcspopsdump_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {},
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/runbooks/RB-Ops-CleanupDaily'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[parameters('runbooks_RB_Ops_CleanupDaily_name')]",
+            "apiVersion": "2015-10-31",
+            "location": "westeurope",
+            "properties": {
+                "runbookType": "PowerShell",
+                "logVerbose": false,
+                "logProgress": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/runbooks/RB-Ops-CSV2AzureTable'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[parameters('runbooks_RB_Ops_CSV2AzureTable_name')]",
+            "apiVersion": "2015-10-31",
+            "location": "westeurope",
+            "properties": {
+                "runbookType": "PowerShell",
+                "logVerbose": false,
+                "logProgress": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/runbooks/RB-Ops-DeleteEmptyLogs'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[parameters('runbooks_RB_Ops_DeleteEmptyLogs_name')]",
+            "apiVersion": "2015-10-31",
+            "location": "westeurope",
+            "properties": {
+                "runbookType": "PowerShell",
+                "logVerbose": false,
+                "logProgress": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/runbooks/RB-Ops-ProcessLogs'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[parameters('runbooks_RB_Ops_ProcessLogs_name')]",
+            "apiVersion": "2015-10-31",
+            "location": "westeurope",
+            "properties": {
+                "runbookType": "PowerShell",
+                "logVerbose": false,
+                "logProgress": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Azure'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Azure_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Azure.Storage'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Azure.Storage_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/AzureRM.Automation'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_AzureRM.Automation_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/AzureRM.Compute'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_AzureRM.Compute_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/AzureRM.Profile'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_AzureRM.Profile_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/AzureRM.Resources'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_AzureRM.Resources_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/AzureRM.Sql'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_AzureRM.Sql_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/AzureRM.Storage'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_AzureRM.Storage_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Microsoft.PowerShell.Core'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Microsoft.PowerShell.Core_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Microsoft.PowerShell.Diagnostics'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Microsoft.PowerShell.Diagnostics_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Microsoft.PowerShell.Management'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Microsoft.PowerShell.Management_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Microsoft.PowerShell.Security'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Microsoft.PowerShell.Security_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Microsoft.PowerShell.Utility'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Microsoft.PowerShell.Utility_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Microsoft.WSMan.Management'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Microsoft.WSMan.Management_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/modules/Orchestrator.AssetManagement.Cmdlets'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[parameters('modules_Orchestrator.AssetManagement.Cmdlets_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "isGlobal": true,
+                "version": null,
+                "sizeInBytes": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/certificates/AzureClassicRunAsCertificate'.",
+            "type": "Microsoft.Automation/automationAccounts/certificates",
+            "name": "[parameters('certificates_AzureClassicRunAsCertificate_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "description": "This certificate is used to authenticate with Azure so that you can manage Azure classic resources from runbooks. For details on this certificate, or to manage it, go to this account’s Settings.  For example usage, see the tutorial runbook in this account.",
+                "base64Value": "[parameters('certificates_AzureClassicRunAsCertificate_base64Value')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/certificates/AzureRunAsCertificate'.",
+            "type": "Microsoft.Automation/automationAccounts/certificates",
+            "name": "[parameters('certificates_AzureRunAsCertificate_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "description": "This certificate is used to authenticate with the service principal that was automatically created for this account. For details on this service principal and certificate, or to recreate them, go to this account’s Settings. For example usage, see the tutorial runbook in this account.",
+                "base64Value": "[parameters('certificates_AzureRunAsCertificate_base64Value')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/connections/AzureClassicRunAsConnection'.",
+            "type": "Microsoft.Automation/automationAccounts/connections",
+            "name": "[parameters('connections_AzureClassicRunAsConnection_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "description": null,
+                "fieldDefinitionValues": null,
+                "connectionType": {
+                    "name": "AzureClassicCertificate"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/connections/AzureRunAsConnection'.",
+            "type": "Microsoft.Automation/automationAccounts/connections",
+            "name": "[parameters('connections_AzureRunAsConnection_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "description": null,
+                "fieldDefinitionValues": null,
+                "connectionType": {
+                    "name": "AzureServicePrincipal"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/schedules/Schedule-Daily'.",
+            "type": "Microsoft.Automation/automationAccounts/schedules",
+            "name": "[parameters('schedules_Schedule_Daily_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "description": "",
+                "startTime": "2017-04-06T00:00:00+04:00",
+                "expiryTime": "9999-12-31T23:59:59.9999999+00:00",
+                "isEnabled": true,
+                "interval": 1,
+                "frequency": "Day"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/28506137-3983-48f9-b55f-c4f24f3b3802/resourcegroups/CSPOperations/providers/Microsoft.Automation/automationAccounts/CSPOperationsBot/jobSchedules/37c4294f-876f-48d6-9b6b-6fdcf04d19d3'.",
+            "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+            "name": "[parameters('jobSchedules_37c4294f_876f_48d6_9b6b_6fdcf04d19d3_name')]",
+            "apiVersion": "2015-10-31",
+            "properties": {
+                "runbook": {
+                    "name": "RB-Ops-CleanupDaily"
+                },
+                "schedule": {
+                    "name": "Schedule-Daily"
+                },
+                "parameters": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_CSPOperationsBot_name_1'))]"
+            ]
+        }
+    ]
+}
