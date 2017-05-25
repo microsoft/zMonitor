@@ -1,10 +1,10 @@
 # zMonitor
 
-## Service Provider Deployment
+## Service Provider / Central Deployment
 
-Tenant operations monitoring is enabled through Operations Management Suite (OMS). What you monitor and report on is dependent on the solutions and agents deployed and how monitoring is configured per workload in each tenant.
+Tenant / subscription operations monitoring is enabled through OMS Log Analytics. What you monitor and report on is dependent on the solutions and agents deployed, how monitoring is configured per workload in each tenant and the queries defined.
 
-The service provider component of the solution is enabled using four core Azure components:
+The service provider / central component of the solution is enabled using four core Azure components:
 
 * Azure Storage Account
 * Azure Automation
@@ -13,6 +13,8 @@ The service provider component of the solution is enabled using four core Azure 
 
 The overall process for tenant monitoring for the service provider is:
 
+![zMonitorCentral](images/zMonitorCentral.png)
+
 1. Receive tenant OMS logs as CSV in storage account container
 1. Use Stream Analytics to move the CSV into Cosmos DB
 1. Run cleanup process through Azure Automation at least daily (cleans up the CSV container)
@@ -20,18 +22,19 @@ The overall process for tenant monitoring for the service provider is:
 
 ## Deployment
 
+<!--
 **** PLACEHOLDER CONTENT FOR QUICKSTART ****
-
+-->
 Below are the basic steps required to deploy the service provider component of the solution, provided as interim guidance while working on the ARM template.
 
 What's needed to setup the service provider components of zMontior.
 
 * Storage Account (BLOBs)
   * Two containers
-        * Main logs container
-        * Archive lgos container
+    * Main logs container - the container where the logs get dropped from subscriptions/tenants.
+    * Archive lgos container
 * Azure Autoamtion
-  * Deploy runbook: RB-Ops-CleanupDaily
+  * Deploy runbook: [RB-Ops-CleanupDaily][1]
     * Schedule to run at least once a day
     * Update storage details in RB-Ops-CleanupDaily:
     ```PowerShell
@@ -57,4 +60,9 @@ What's needed to setup the service provider components of zMontior.
         [StorageContainerCSVs]
     ```
 * Visualize - PowerBI
-  * Configure connection to CosmosDB.
+  * Configure connection to CosmosDB
+  
+    NOTE: Use the datasource connector "DocumentDB (Beta)"
+
+<!-- LINKS -->
+[1]:deploy/serviceprovider/PS-Ops-CleanupDaily.ps1
