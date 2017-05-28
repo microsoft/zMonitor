@@ -1,9 +1,12 @@
-﻿$TenantID = "d30b7b5b-514d-412e-9f07-e5958292afc8"
-$SubscriptionID = "D8F3F8EB-779D-4495-A12E-A9DF6B081B36"
+﻿# The config settings are for CSP partners, which need the TenantID as well as SubscriptionID.
+# For non-CSP deployments, the TenantID is not used.
+$TenantID = "<TenantID>"
+$SubscriptionID = "<Tenant SubscriptionID>"
 $resourceGroupName = "zMonitor"
-$resourceRegion = "West Europe"
-$templateFilePath = "C:\Users\sprin\OneDrive - Microsoft\30 My IP Development Space\OSP Resources\Tenant\oms-all-deploy\azuredeploy.json"
+$resourceRegion = "West Europe" # Your preferred region
+$templateFilePath = "<FULL PATH TO>\Tenant\oms-all-deploy\azuredeploy.json"
 
+# Remove TenantID for non-CSP deployments
 Login-AzureRmAccount -TenantId $TenantID -SubscriptionId $SubscriptionID
 
 $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue

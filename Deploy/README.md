@@ -1,1 +1,1 @@
-Please refer to the documentation folder for deployment instructions.
+Please refer to the documentation in the root for deployment instructions.

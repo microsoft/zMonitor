@@ -60,7 +60,7 @@ The components that make up the solution:
 
 ## Contributions
 
-Please refer to [CONTRIBUTING.md](Contributing.md)
+Please refer to [CONTRIBUTING](Contributing.md)
 
 ## License
 
@@ -84,4 +84,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [4]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [5]: https://powerbi.microsoft.com/en-us/documentation/powerbi-landing-page/
 [6]: Deploy-Tenant.md
-[7]: Deploy-ServiceProivder.md
+[7]: Deploy-ServiceProvider.md
