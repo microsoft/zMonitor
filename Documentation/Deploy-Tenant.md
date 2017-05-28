@@ -53,11 +53,11 @@ The overall process for tenant monitoring is:
 
     1. Create Run As Account
 
-        ![Create Run As Account](images/snip_20170418162910.png)
+        ![Create Run As Account](images/tenantCreateRunAsAccount.png)
 
     1. Update Azure Modules
 
-        ![Update Azure Modules](images/snip_20170418163558.png)
+        ![Update Azure Modules](images/tenantUpdateModules.png)
 
     1. Update storage settings in "RB-ProcessLogs.ps1"
 
@@ -71,7 +71,7 @@ The overall process for tenant monitoring is:
 
     1. Import existing runbooks
 
-        ![Import Runbooks](images/snip_20170418164421.png)
+        ![Import Runbooks](images/tenantImportRunbooks.png)
 
         Repeat for all scripts:
         * RB-Ops-Daily.ps1
@@ -82,7 +82,7 @@ The overall process for tenant monitoring is:
 
         Then create and link schedules for the Daily and Hourly scripts:
 
-        ![Example: Schedule Daily Runbook](images/snip_20170418185502.png)
+        ![Example: Schedule Daily Runbook](images/tenantScheduleDailyRunbook.png)
 
         To ensure everything is properly configured, run the following runbooks once, and validate output:
         * RB-Ops-Daily.ps1
