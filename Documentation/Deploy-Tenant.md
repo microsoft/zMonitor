@@ -49,7 +49,7 @@ The overall process for tenant monitoring is:
 
 1. Configure Azure Automation
 
-    Take your time through this section. The components need time to register and come online. 
+    Take your time through this section. The components need time to register and come online.
 
     1. Create Run As Account
 
@@ -67,7 +67,7 @@ The overall process for tenant monitoring is:
         $StorageContainerName = "<privatecontainer>"
         $StorageAccountKey = "<storageaccountkey>"
         ```
-        These are the settings in the service providers BLOB storage account 
+        These are the settings in the service providers BLOB storage account.
 
     1. Import existing runbooks
 
@@ -78,7 +78,7 @@ The overall process for tenant monitoring is:
         * RB-Ops-Hourly.ps1
         * RB-ProcessLogs.ps1
 
-        For each of the imported runbooks, open the Runbook blade, click "Edit" then "Publish". 
+        For each of the imported runbooks, open the Runbook blade, click "Edit" then "Publish".
 
         Then create and link schedules for the Daily and Hourly scripts:
 

@@ -16,22 +16,23 @@ $StorageAccountName = "<STORAGE ACCOUNT>"
 $StorageContainerName = "<STORAGE CONTAINER NAME>"
 $StorageAccountKey = "<STORAGE ACCOUNT KEY>"
 $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
-#Get-AzureStorageContainer -Name $StorageContainerName -Context $Ctx
 
 $workspace = Get-AutomationVariable -Name "OMSWorkspaceName"
 $date = get-date -f yyyyMMddHHmm
-#$reportname = "activealertscritical"
-#$dynamicQuery = "Type=Alert (AlertSeverity=error or AlertSeverity=critical) TimeGenerated>NOW-24HOUR AlertState!=Closed"
 
-# Run the OMS Query Search - Edit Workspace Name Per Tenant
-# NOTE : Results are limited to 5000 results
+# Run the OMS Query Search
+# NOTE : Results are limited to 5000 results by the API
 $result = Get-AzureRmOperationalInsightsSearchResults -ResourceGroupName "zMonitor" -WorkspaceName $($workspace) -Top 5000 -Query $dynamicQuery
 
-$result.Value | ConvertFrom-Json | Export-Csv -NoTypeInformation $env:TEMP\$($workspace)-$($reportname)-$($date)-temp.csv -Force
+# Process the report if it contains data
+if ($result.Value.Count -gt 0)
+{
+    $result.Value | ConvertFrom-Json | Export-Csv -NoTypeInformation $env:TEMP\$($workspace)-$($reportname)-$($date)-temp.csv -Force
 
-Import-Csv $env:TEMP\$(Get-AutomationVariable -Name "OMSWorkspaceName")-$($reportname)-$($date)-temp.csv | 
-    select-Object *,@{Name='tenantworkspace';Expression={$($workspace)}},@{Name='reportname';Expression={$($reportname)}} | 
-    Export-Csv -NoTypeInformation $env:TEMP\$($workspace)-$($reportname)-$($date).csv
+    Import-Csv $env:TEMP\$(Get-AutomationVariable -Name "OMSWorkspaceName")-$($reportname)-$($date)-temp.csv | 
+        select-Object *,@{Name='tenantworkspace';Expression={$($workspace)}},@{Name='reportname';Expression={$($reportname)}} | 
+        Export-Csv -NoTypeInformation $env:TEMP\$($workspace)-$($reportname)-$($date).csv
 
-#Write-Output "Moving CSV Results File to Azure Blob Storage."
-Set-AzureStorageBlobContent -Context $Ctx -File $env:TEMP\$($workspace)-$($reportname)-$($date).csv -Container $StorageContainerName -Force | Out-Null
+    #Write-Output "Moving CSV Results File to Azure Blob Storage."
+    Set-AzureStorageBlobContent -Context $Ctx -File $env:TEMP\$($workspace)-$($reportname)-$($date).csv -Container $StorageContainerName -Force | Out-Null
+}

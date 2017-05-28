@@ -6,7 +6,7 @@
 #All detected threats based on threat status rank.
 .\RB-ProcessLogs.ps1 `
 		-ReportName "securitydetectedthreats" `
-		-dynamicQuery "Type=ProtectionStatus ThreatStatusRank > 199 ThreatStatusRank != 470 | measure max(ThreatStatusRank) as Rank by Computer | Top 50000"
+		-dynamicQuery "Type=ProtectionStatus ThreatStatusRank > 199 ThreatStatusRank != 470 | measure max(ThreatStatusRank) as Rank by Computer | Top 5000"
 
 #All Windows security login failures in the past 1 hours.
 .\RB-ProcessLogs.ps1 `
