@@ -12,7 +12,7 @@ For monitoring within subscriptions, OMS Log Analytics is leveraged as the nativ
 
 Log Analytics data is then exported into a central Cosmos DB collection, from where it can be vizualized using any preferred tool. For this solution, PowerBI is used for demonstration purposes.
 
-![zMonitor Solution Overview](documentation/images/zMonitorOverview.png)
+![zMonitor Solution Overview](./documentation/images/zMonitorOverview.png)
 
 The components that make up the solution:
 
