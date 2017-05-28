@@ -4,7 +4,7 @@
 
 An Azure platform native monitoring solution that enables monitoring across multiple tenants or subscriptions.
 
-The primary goal is to utilize Azure native components, and deliver an as simple as possible, highly configurable and scalable, cost-effective monitoring solution. The driving force behind this solution was the need to be able to monitor Azure resources across tenants (for service providers), using Azure native tools. WHile there are many metrics and logs generated in Azure, surfacing this information across subscriptions/tenants proved challenging.
+The primary goal is to utilize Azure native components, and deliver an as simple as possible, highly configurable and scalable, cost-effective monitoring solution. The driving force behind this solution was the need to be able to monitor Azure resources across tenants (for service providers), using Azure native tools. While there are many metrics and logs generated in Azure, surfacing this information across subscriptions/tenants proved challenging.
 
 ## Solution
 

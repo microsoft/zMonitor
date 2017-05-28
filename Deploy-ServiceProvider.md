@@ -46,7 +46,7 @@ What's needed to setup the service provider components of zMontior.
     * Scale according to number of tenants, a starting scale on a single partition is 2000 RUs. 
 * Stream Analytics
   * Configure input : storage account main logs containers
-  * Configure output : CosmosDB collection
+  * Configure output : Cosmos DB collection
   * Define the query:
     ```SQL
     SELECT

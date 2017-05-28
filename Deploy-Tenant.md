@@ -1,8 +1,8 @@
 # zMonitor
 
-## Tenant Deployment
+## Tenant \ Subscription Deployment
 
-Tenant operations monitoring is enabled through Operations Management Suite (OMS). What you monitor and report on is dependent on the solutions and agents deployed and how monitoring is configured per workload in each tenant.
+Tenant \ subscription operations monitoring is enabled through Operations Management Suite (OMS). What you monitor and report on is dependent on the solutions and agents deployed and how monitoring is configured per workload in each tenant.
 
 Monitoring is enabled using two core Azure components:
 
@@ -11,7 +11,7 @@ Monitoring is enabled using two core Azure components:
 
 The overall process for tenant monitoring is:
 
-1. Configure Log Analytics 
+1. Configure Log Analytics
 1. Define Log Analytics queries to extract the monitoring information required
 1. Schedule Azure Automation runbooks to execute queries and upload to service provider
 
@@ -39,7 +39,7 @@ The overall process for tenant monitoring is:
     azureadmin: <whatever>
     azureAdminPwd: <whatever>
     ```
-    NOTE: Ensure that the omsWorkspaceName is the same as the tenant name, for example, if registered tenant name is tenant1.onmicrosoft.com, then make the omsWorkspaceName "tenant1".
+    NOTE: Ensure that the omsWorkspaceName is the same as the tenant name, for example, if registered tenant name is tenant1.onmicrosoft.com, then make the omsWorkspaceName "tenant1". The omsWorkspace name is how you uniquely identify subscriptions or tenants.
 
     1. Wait for script execution to complete (takes about 10 minutes).
 
