@@ -12,9 +12,9 @@ $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Set service provider Azure storage account and get the context
-$StorageAccountName = "springcspopsdump"
-$StorageContainerName = "omslogcsv"
-$StorageAccountKey = "f9xxQl2cRhZE4go2ZzPvNfgO7zHAJDHUeFVur/g/bd1XUaavYsb5jxxcNt0P884bUq2prBy3+4inVlDvqMGLtQ=="
+$StorageAccountName = "<STORAGE ACCOUNT>"
+$StorageContainerName = "<STORAGE CONTAINER NAME>"
+$StorageAccountKey = "<STORAGE ACCOUNT KEY>"
 $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
 #Get-AzureStorageContainer -Name $StorageContainerName -Context $Ctx
 
