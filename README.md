@@ -12,7 +12,7 @@ For monitoring within subscriptions, OMS Log Analytics is leveraged as the nativ
 
 Log Analytics data is then exported into a central Cosmos DB collection, from where it can be vizualized using any preferred tool. For this solution, PowerBI is used for demonstration purposes.
 
-![zMonitor Solution Overview](images/zMonitorOverview.png)
+![zMonitor Solution Overview](documentation/images/zMonitorOverview.png)
 
 The components that make up the solution:
 
@@ -60,7 +60,7 @@ The components that make up the solution:
 
 ## Contributions
 
-Please refer to [CONTRIBUTING](Contributing.md)
+Please refer to [CONTRIBUTING](documentation/Contributing.md)
 
 ## License
 
@@ -76,12 +76,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 <!-- LINKS -->
 [1]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview
 [2]: https://docs.microsoft.com/en-us/azure/automation/automation-intro
 [3]: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction
 [4]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [5]: https://powerbi.microsoft.com/en-us/documentation/powerbi-landing-page/
-[6]: Deploy-Tenant.md
-[7]: Deploy-ServiceProvider.md
+[6]: documentation/Deploy-Tenant.md
+[7]: documentation/Deploy-ServiceProvider.md

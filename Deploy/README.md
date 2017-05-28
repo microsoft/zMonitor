@@ -1,1 +1,1 @@
-Please refer to the documentation in the root for deployment instructions.
+Please refer to the [documentation](../README.md) for deployment instructions.

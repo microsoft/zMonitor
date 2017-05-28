@@ -92,9 +92,9 @@ The overall process for tenant monitoring is:
 
 1. (Optional) Customize
 
-    This solution is designed to be highly scalable and flexible. If you can query it in Log Analytics, you can report on it in zMonitor. To this end, feel free to customize the data collection queries, by editting :
+    This solution is designed to be highly scalable and flexible. If you can query it in Log Analytics, you can report on it in zMonitor. The included queries today are documented [here](Log-Reports.md). To this end, feel free to customize the data collection queries, by editting :
 
     * RB-Ops-Daily.ps1 - for queries that run daily
     * RB-Ops-Hourly.ps1 - for queries that run hourly
 
-    Or you can create additional PowerShell scripts for other intervals/schedules, if desired. 
+    Or you can create additional PowerShell scripts for other intervals/schedules, if desired.
