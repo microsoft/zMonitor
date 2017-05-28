@@ -49,15 +49,15 @@ The overall process for tenant monitoring is:
 
 1. Configure Azure Automation
 
-    Take your time through this section. The components need time to register and come online. 
+    Take your time through this section. The components need time to register and come online.
 
     1. Create Run As Account
 
-        ![Create Run As Account](images/snip_20170418162910.png)
+        ![Create Run As Account](images/tenantCreateRunAsAccount.png)
 
     1. Update Azure Modules
 
-        ![Update Azure Modules](images/snip_20170418163558.png)
+        ![Update Azure Modules](images/tenantUpdateModules.png)
 
     1. Update storage settings in "RB-ProcessLogs.ps1"
 
@@ -67,22 +67,22 @@ The overall process for tenant monitoring is:
         $StorageContainerName = "<privatecontainer>"
         $StorageAccountKey = "<storageaccountkey>"
         ```
-        These are the settings in the service providers BLOB storage account 
+        These are the settings in the service providers BLOB storage account.
 
     1. Import existing runbooks
 
-        ![Import Runbooks](images/snip_20170418164421.png)
+        ![Import Runbooks](images/tenantImportRunbooks.png)
 
         Repeat for all scripts:
         * RB-Ops-Daily.ps1
         * RB-Ops-Hourly.ps1
         * RB-ProcessLogs.ps1
 
-        For each of the imported runbooks, open the Runbook blade, click "Edit" then "Publish". 
+        For each of the imported runbooks, open the Runbook blade, click "Edit" then "Publish".
 
         Then create and link schedules for the Daily and Hourly scripts:
 
-        ![Example: Schedule Daily Runbook](images/snip_20170418185502.png)
+        ![Example: Schedule Daily Runbook](images/tenantScheduleDailyRunbook.png)
 
         To ensure everything is properly configured, run the following runbooks once, and validate output:
         * RB-Ops-Daily.ps1
@@ -92,9 +92,9 @@ The overall process for tenant monitoring is:
 
 1. (Optional) Customize
 
-    This solution is designed to be highly scalable and flexible. If you can query it in Log Analytics, you can report on it in zMonitor. To this end, feel free to customize the data collection queries, by editting :
+    This solution is designed to be highly scalable and flexible. If you can query it in Log Analytics, you can report on it in zMonitor. The included queries today are documented [here](Log-Reports.md). To this end, feel free to customize the data collection queries, by editting :
 
     * RB-Ops-Daily.ps1 - for queries that run daily
     * RB-Ops-Hourly.ps1 - for queries that run hourly
 
-    Or you can create additional PowerShell scripts for other intervals/schedules, if desired. 
+    Or you can create additional PowerShell scripts for other intervals/schedules, if desired.

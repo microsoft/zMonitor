@@ -10,7 +10,7 @@ $StorageAccountKey = "<STORAGE ACCOUNT KEY>"
 
 $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-#Cleanup all 0 byte files - no data
+#Cleanup all 0 byte files - should no longer be needed
 Get-AzureStorageBlob -Container $StorageContainerName -Context @Ctx | Where-Object {$_.Length -eq 0} | Remove-AzureStorageBlob
 
 #Get all blobs older than an hour

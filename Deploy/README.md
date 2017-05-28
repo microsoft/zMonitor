@@ -1,1 +1,3 @@
-Please refer to the documentation in the root for deployment instructions.
+# zMonitor
+
+Please refer to the [documentation](../README.md) for deployment instructions.
