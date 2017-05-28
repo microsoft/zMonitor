@@ -12,7 +12,7 @@ For monitoring within subscriptions, OMS Log Analytics is leveraged as the nativ
 
 Log Analytics data is then exported into a central Cosmos DB collection, from where it can be vizualized using any preferred tool. For this solution, PowerBI is used for demonstration purposes.
 
-![zMonitor Solution Overview](./documentation/images/zMonitorOverview.png)
+![zMonitor Solution Overview](Documentation/images/zMonitorOverview.png)
 
 The components that make up the solution:
 
@@ -33,7 +33,7 @@ The components that make up the solution:
 
 * Log Analytics
 
-  <!--![Log Analytics](images/loganalytics.png)-->
+  <!--![Log Analytics](Documentation/images/loganalytics.png)-->
   [Documentation: Log Analytics][1]
 
 * Azure Automation
@@ -60,7 +60,7 @@ The components that make up the solution:
 
 ## Contributions
 
-Please refer to [CONTRIBUTING](documentation/Contributing.md)
+Please refer to [CONTRIBUTING](Documentation/Contributing.md)
 
 ## License
 
@@ -82,5 +82,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [3]: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction
 [4]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [5]: https://powerbi.microsoft.com/en-us/documentation/powerbi-landing-page/
-[6]: documentation/Deploy-Tenant.md
-[7]: documentation/Deploy-ServiceProvider.md
+[6]: Documentation/Deploy-Tenant.md
+[7]: Documentation/Deploy-ServiceProvider.md
