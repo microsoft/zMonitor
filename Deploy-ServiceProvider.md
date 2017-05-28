@@ -16,15 +16,12 @@ The overall process for tenant monitoring for the service provider is:
 ![zMonitorCentral](images/zMonitorCentral.png)
 
 1. Receive tenant OMS logs as CSV in storage account container
-1. Use Stream Analytics to move the CSV into Cosmos DB
+1. Use Stream Analytics to move the CSV into Cosmos DB (formerly DocumentDB)
 1. Run cleanup process through Azure Automation at least daily (cleans up the CSV container)
-1. Visualize. This solution provides a work in progress PowerBI sample for viewing data. Viusalization can be done through any mechanism familiar to the service provider, including existing tools as long as they can query Cosmos DB. PowerBI is provided for convenience.
+1. Visualize. This solution provides a work in progress PowerBI sample for viewing data. Viusalization can be done through any mechanism familiar to you, including existing tools as long as they can query Cosmos DB. PowerBI is provided for convenience as a starting point.
 
 ## Deployment
 
-<!--
-**** PLACEHOLDER CONTENT FOR QUICKSTART ****
--->
 Below are the basic steps required to deploy the service provider component of the solution, provided as interim guidance while working on the ARM template.
 
 What's needed to setup the service provider components of zMontior.
@@ -55,13 +52,13 @@ What's needed to setup the service provider components of zMontior.
     SELECT
         *
     INTO
-        [CosmosDBOut]
+        [CosmosDBCollection]
     FROM
         [StorageContainerCSVs]
     ```
 * Visualize - PowerBI
   * Configure connection to CosmosDB
-  
+
     NOTE: Use the datasource connector "DocumentDB (Beta)"
 
 <!-- LINKS -->
