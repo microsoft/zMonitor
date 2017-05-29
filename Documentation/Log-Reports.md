@@ -9,9 +9,12 @@ The queries included in this sample solution are designed to be flexible and hig
 * Alerts generated in the past 24 hours that are still open
 * All Windows VMs that require updates
 * All VMs that are missing critical updates
+* All VMs with more than 2GB RAM available on average
+* All computers with their most recent data
 
 ### Hourly Reports
 
 * Average CPU usage calculated over 10 minutes for the last 1 hours
 * All detected threats based on threat status rank
 * All Windows security login failures in the past 1 hours
+* All Linux Syslog errors in the past 1 hour

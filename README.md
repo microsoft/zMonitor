@@ -4,7 +4,7 @@
 
 An Azure platform native monitoring solution that enables monitoring across multiple tenants or subscriptions.
 
-The primary goal is to utilize Azure native components, and deliver an as simple as possible, highly configurable and scalable, cost-effective monitoring solution. The driving force behind this solution was the need to be able to monitor Azure resources across tenants (for service providers), using Azure native tools. While there are many metrics and logs generated in Azure, surfacing this information across subscriptions/tenants proved challenging.
+The primary goal is to utilize Azure native components, and deliver an as simple as possible, highly configurable and scalable, cost-effective monitoring solution. The driving force behind this solution was the need to be able to monitor Azure resources across tenants (for service providers), using Azure native tools. While there are many metrics and logs generated in Azure, surfacing this information across subscriptions/tenants and effectively monitoring proved challenging.
 
 ## Solution
 
@@ -29,34 +29,34 @@ The components that make up the solution:
   * Azure Automation
   * [Optional] Power BI
 
-## Azure Resource Documentation
+For additional info on what is currently enabled through this solution (work in progress):
 
-* Log Analytics
-
-  <!--![Log Analytics](Documentation/images/loganalytics.png)-->
-  [Documentation: Log Analytics][1]
-
-* Azure Automation
-
-  [Documentation: Azure Automation][2]
-
-* Stream Analytics
-
-  [Documentation: Stream Analytics][3]
-
-* Azure Cosmos DB
-
-  [Documentation: Azure Cosmos DB][4]
-
-* Power BI
-
-  [Documentation: Power BI][5]
+* [Reports/Queries](Documentation/Log-Reports.md)
+* [Resources for writing Log Analytics queries](Documentation/Writing-Reports.md)
 
 ## Deployment
+
+The detailed deployment instructions for the solution:
 
 [Deploying monitoring for Tenant/ Subscription][6]
 
 [Deploying the central repository (e.g. Service Provider)][7]
+
+## Azure Resource Documentation
+
+For more information on the individual components, please refer to the official documentation:
+
+* [Log Analytics][1]
+
+  <!--![Log Analytics](Documentation/images/loganalytics.png)-->
+
+* [Azure Automation][2]
+
+* [Stream Analytics][3]
+
+* [Azure Cosmos DB][4]
+
+* [Power BI][5]
 
 ## Contributions
 
