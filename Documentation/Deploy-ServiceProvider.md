@@ -43,7 +43,7 @@ What's needed to setup the service provider components of zMontior.
 * Azure Cosmos DB
     * Create database and collection
     * Remember to set Time To Live (TTL) - recommended to set to 7 days (604800 seconds)
-    * Scale according to number of tenants, a starting scale on a single partition is 2000 RUs. 
+    * Scale according to number of tenants, a starting scale on a single partition is 1500 RUs.
 * Stream Analytics
   * Configure input : storage account main logs containers
   * Configure output : Cosmos DB collection
