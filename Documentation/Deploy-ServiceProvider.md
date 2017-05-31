@@ -28,7 +28,7 @@ What's needed to setup the service provider components of zMontior.
 
 * Storage Account (BLOBs)
 
-  Storage for the CSV logs.
+  Storage for the CSV logs, Hot Locally Redundant (LRS) BLOB storage is sufficient. Cold may work but hasn't been tested.
   * Two containers
     * Main logs container
 
@@ -40,7 +40,7 @@ What's needed to setup the service provider components of zMontior.
 
 * Azure Autoamtion
 
-  Runs the CSV cleanup and archiving jobs. 
+  Runs the CSV cleanup and archiving jobs.
   * Deploy runbook: [RB-Ops-CleanupDaily][1]
     * Schedule to run at least once a day, recommended to run every hour or two
     * Update storage details in RB-Ops-CleanupDaily:
@@ -58,7 +58,9 @@ What's needed to setup the service provider components of zMontior.
 
       This auto-deletes records in Cosmos DB older than what's specficied in the TTL setting. This keeps the collection size constrained  and query performance reasonable. Adjust this according to your specific requirements. Remember, the original data is archived in the BLOB archive container.
 
-    * Scale according to number of tenants, a starting scale on a single partition is 1500 RUs.
+    * Scale according to number of tenants and query performance
+
+    Start scale on a single partition with 400 RUs. Increase RUs as query performance is impacted. Data ingest should not be impacted at 400 RUs as we add data in short bursts. 
 
 * Stream Analytics
   * Configure input : storage account main logs containers

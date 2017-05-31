@@ -6,6 +6,8 @@ An Azure platform native monitoring solution that enables monitoring across mult
 
 The primary goal is to utilize Azure native components, and deliver an as simple as possible, highly configurable and scalable, cost-effective monitoring solution. The driving force behind this solution was the need to be able to monitor Azure resources across tenants (for service providers), using Azure native tools. While there are many metrics and logs generated in Azure, surfacing this information across subscriptions/tenants and effectively monitoring proved challenging.
 
+For an indication of potential costs for the solution, review the [cost estimate](Documentation/Cost-Estimate.md) documentation.
+
 ## Solution
 
 For monitoring within subscriptions, OMS Log Analytics is leveraged as the native log and metric aggregation toolset in Azure. Using the free tier of Log Analytics will be sufficient for most cases, but depends on the number of resources being monitored and the metrics being collected.
