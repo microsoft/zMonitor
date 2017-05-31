@@ -10,6 +10,7 @@ All pricing estimates in this document are based on region "West Europe" and are
 
 For tenants or subscriptions with a small footprint, 4 VMs with log management enabled, the free versions should be sufficient. Log management drives the most consumption of capacity in Log Analytics, contributing approximatley 100MB per day per VM. After the 500MB daily limit is hit, switch to standalone per GB pricing tier (currently at $2.30 per GB). A inidicative rule of thumb is number of VMs x 100MB to work out potential costs, e.g. 20 VMs = 2GB = $4.60 per month (mileage may very depending on workloads but it's a good indicator).
 
+Basic tenant monitoring:
 
 | Component                     | Assumptions               | Cost (monthly)     |
 | ----------------------------- | ------------------------- | ------------------ |
