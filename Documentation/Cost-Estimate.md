@@ -4,7 +4,7 @@
 
 Cost estimates for the zMonitor solution really depend on what you are monitoring, the solutions enabled in Log Analytics and how often.
 
-All pricing estimates in this document are based on region "West Europe".
+All pricing estimates in this document are based on region "West Europe" and are indicative only.
 
 ### Tenant / Subscription
 
