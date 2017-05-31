@@ -63,7 +63,7 @@ What's needed to setup the service provider components of zMontior.
     Start scale on a single partition with 400 RUs. Increase RUs as query performance is impacted. Data ingest should not be impacted at 400 RUs as we add data in short bursts. 
 
 * Stream Analytics
-  * Configure input : storage account main logs containers
+  * Configure input : storage account main logs container
   * Configure output : Cosmos DB collection
   * Define the query:
     ```SQL
@@ -74,6 +74,9 @@ What's needed to setup the service provider components of zMontior.
     FROM
         [StorageContainerCSVs]
     ```
+  * Start the stream job
+
+  ![Stream Analytics - Running](images/centralStreamAnalytics.png)
 * Visualize - PowerBI
   * Configure connection to CosmosDB using URI and key (read-only)
 
