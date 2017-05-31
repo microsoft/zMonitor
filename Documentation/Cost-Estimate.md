@@ -2,17 +2,19 @@
 
 ## Cost Estimates
 
-Cost estimates for the zMonitor solution really depend on what you are monitoring, and how often.
+Cost estimates for the zMonitor solution really depend on what you are monitoring, the solutions enabled in Log Analytics and how often.
 
-All pricing estimates in this document are based on region "West Europe".
+All pricing estimates in this document are based on region "West Europe" and are indicative only.
 
 ### Tenant / Subscription
 
-For tenants or subscriptions with a small footprint, a couple of VMs, the free versions should be sufficient. Keep an eye on Log Analytics log usage, as you may need change to the paid version, depending on the amount of data you are collecting. If you're processing logs, you can quickly exceed the 500NB daily limit for the free tier of Log Analytics.
+For tenants or subscriptions with a small footprint, 4 VMs with log management enabled, the free versions should be sufficient. Log management drives the most consumption of capacity in Log Analytics, contributing approximatley 100MB per day per VM. After the 500MB daily limit is hit, switch to standalone per GB pricing tier (currently at $2.30 per GB). A inidicative rule of thumb is number of VMs x 100MB to work out potential costs, e.g. 20 VMs = 2GB = $4.60 per month (mileage may very depending on workloads but it's a good indicator).
+
+Basic tenant monitoring:
 
 | Component                     | Assumptions               | Cost (monthly)     |
 | ----------------------------- | ------------------------- | ------------------ |
-| Log Analytics                 | Free tier                 | $ 0.00             |
+| Log Analytics                 | 3-4 VMs (Free)            | $ 0.00             |
 | Azure Automation              | 500 minutes (Free)        | $ 0.00             |
 |                               |                           | **$ 0.00**         |
 
@@ -28,5 +30,4 @@ For tenants or subscriptions with a small footprint, a couple of VMs, the free v
 
 * [Optional] Power BI - assume you have a license for PowerBI Desktop.
 
-
-
+DISCLAIMER: The pricing reflected here is for demonstration purposes only. Actual pricing and costs may vary.
