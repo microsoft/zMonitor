@@ -1,8 +1,12 @@
 # zMonitor
 
+An Azure platform native monitoring solution that enables Azure monitoring across multiple tenants or subscriptions.
+
 ## Overview
 
-An Azure platform native monitoring solution that enables monitoring across multiple tenants or subscriptions.
+Problem statement: A service provider with 50 tenants with Azure subscriptions provisioned through CSP (Cloud Solution Provider), needing to consolidate operational telemetry to optimize running costs as well as deliver higher SLAs with a minimum amount of administrative overhead.
+
+Enter zMonitor, a platform for reporting based on Log Analytics data collected, quickly gaining insights across tenants or subscriptions. Gain insights on disks capacity status, VM performance - over or under utilized CPU/Memory/Disk/etc, security vulnerabilities - failed logons, update/patch status, application errors, etc.
 
 The primary goal is to utilize Azure native components, and deliver an as simple as possible, highly configurable and scalable, cost-effective monitoring solution. The driving force behind this solution was the need to be able to monitor Azure resources across tenants (for service providers), using Azure native tools. While there are many metrics and logs generated in Azure, surfacing this information across subscriptions/tenants and effectively monitoring proved challenging.
 
