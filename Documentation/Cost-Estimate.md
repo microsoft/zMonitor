@@ -31,4 +31,3 @@ Basic tenant monitoring:
 * [Optional] Power BI - assume you have a license for PowerBI Desktop.
 
 DISCLAIMER: The pricing reflected here is for demonstration purposes only. Actual pricing and costs may vary. We also recommend that you do your own testing to determine actual costs for your requirements.
-
