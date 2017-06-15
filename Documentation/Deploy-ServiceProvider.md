@@ -24,7 +24,7 @@ The overall process for tenant monitoring for the service provider is:
 
 Below are the basic steps required to deploy the service provider component of the solution, provided as interim guidance while working on the ARM template (currently limited by stream analytics configuration).
 
-What's needed to setup the service provider components of zMontior.
+What's needed to setup the service provider components of zMonitor.
 
 * Storage Account (BLOBs)
 
@@ -45,7 +45,7 @@ What's needed to setup the service provider components of zMontior.
 
       Long term retention of CSV logs, useful for later processing. Not directly required by this solution.
 
-* Azure Autoamtion
+* Azure Automation
 
   Runs the CSV cleanup and archiving jobs. Create automation account:
 
