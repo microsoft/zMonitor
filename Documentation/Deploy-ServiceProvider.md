@@ -45,7 +45,7 @@ What's needed to setup the service provider components of zMontior.
 
       Long term retention of CSV logs, useful for later processing. Not directly required by this solution.
 
-* Azure Autoamtion
+* Azure Automation
 
   Runs the CSV cleanup and archiving jobs. Create automation account:
 
